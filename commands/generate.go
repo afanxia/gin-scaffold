@@ -12,7 +12,7 @@ import (
 
 	"github.com/codegangsta/cli"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/liujianping/scaffold/symbol"
+	"github.com/afanxia/gin-scaffold/symbol"
 )
 
 func src_template_dir(ctx *cli.Context) (string, error) {
@@ -26,7 +26,7 @@ func src_template_dir(ctx *cli.Context) (string, error) {
 	if gopath == "" {
 		return "", errors.New("Abort: GOPATH environment variable is not set. ")
 	}
-	return path.Join(filepath.SplitList(gopath)[0], "src", "github.com/liujianping/scaffold", "templates", template), nil
+	return path.Join(filepath.SplitList(gopath)[0], "src", "github.com/afanxia/gin-scaffold", "templates", template), nil
 }
 
 func dest_project_dir(project string) (string, error) {

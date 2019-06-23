@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/liujianping/scaffold/commands"
+	"github.com/afanxia/gin-scaffold/commands"
 )
 
 func main() {

@@ -36,7 +36,7 @@ CREATE TABLE `users` (
 ##### 安装
 
 ````shell
-$: go get github.com/liujianping/scaffold
+$: go get github.com/afanxia/gin-scaffold
 
 ````
 

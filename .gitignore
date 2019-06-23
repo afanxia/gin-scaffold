@@ -12,11 +12,11 @@
 *.out
 
 *.DS_Store
-/templates/cmd/gin-scaffold/gin-scaffold
-/templates/release
-/templates/data
-/templates/internal/app/test/data
-/templates/internal/app/admin/test/data
+/templates/portal/cmd/gin-scaffold/gin-scaffold
+/templates/portal/release
+/templates/portal/data
+/templates/portal/internal/app/test/data
+/templates/portal/internal/app/admin/test/data
 
 # IDE
 /.idea
