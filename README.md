@@ -1,131 +1,74 @@
-<h1 align="center">Gin Admin</h1>
+scaffold
+===
 
-<div align="center">
- 基于 Gin + GORM + Casbin 实现的RBAC权限管理脚手架，目的是提供一套轻量的中后台开发框架，方便、快速的完成业务需求的开发。
-<br/>
+一款基于数据库定义的代码生成器。
 
-[![ReportCard][reportcard-image]][reportcard-url] [![GoDoc][godoc-image]][godoc-url] [![License][license-image]][license-url]
+### 它是如何工作的？
 
-</div>
+正如我们所知, go 中进行 json 字符串的编码/解码过程中, 可以通过对象定义时字段的tag定义, 对字段进行补充说明。如下例:
 
-- [在线演示地址](https://demo.tiannianshou.com) (用户名：root，密码：abc-123)（`温馨提醒：为了达到更好的演示效果，这里给出了拥有最高权限的用户，请手下留情，只操作自己新增的数据，不要动平台本身的数据！谢谢！`）
-- [Swagger 文档地址](https://demo.tiannianshou.com/swagger/)
+````go
+type JsonSomething struct{
+  AField  int64     `json:"x"`
+  BField  string    `json:"y"`
+}
+````
+同样的方法, scaffold 通过数据库定义中的字段(或表)的 COMMENT 定义来对相应字段(或表)进行补充说明, 在根据模板进行代码生成。如:
 
-![](./screenshot_swagger.png)
+````sql
+CREATE TABLE `users` (
+  `id`          INT UNSIGNED     NOT NULL  PRIMARY KEY AUTO_INCREMENT COMMENT 'caption:"编号"',
+  `name`        VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"名称"',
+  `mailbox`     VARCHAR(128)     NOT NULL  DEFAULT '' COMMENT 'caption:"邮箱"',
+  `sex`         TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"性别"',
+  `description` VARCHAR(256)     NOT NULL  DEFAULT '' COMMENT 'caption:"描述"',
+  `password`    VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"密码"',
+  `head_url`    VARCHAR(255)     NOT NULL  DEFAULT '' COMMENT 'caption:"头像"',
+  `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"状态"',
+  `created_at`   TIMESTAMP       NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT 'caption:"创建时间"'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT 'caption:"会员"';
 
-## 特性
+````
+如定义表结构后, scaffold 就可以通过 模板函数读取到 comment 中的 caption 字段, 并根据模板生成代码了。
 
-- 遵循 RESTful API 设计规范
-- 基于 Casbin 的 RBAC 访问控制模型
-- 存储分离(存储层对外采用接口的方式供业务层调用，实现了存储层的完全隔离，可以非常方便的更换存储方式)
-- 日志追踪(基于[logrus](https://github.com/sirupsen/logrus)，日志钩子支持 gorm)
-- JWT 认证(基于黑名单的认证模式，存储支持：file/redis)
-- 支持 Swagger 文档
-- 单元测试
+### 快速开始
 
-## 下载并运行
+##### 安装
 
-### 获取代码
+````shell
+$: go get github.com/liujianping/scaffold
 
-```
-go get -v github.com/afanxia/gin-scaffold/cmd/gin-scaffold
-```
+````
 
-### 运行
+##### 生成model代码
 
-> root 用户的用户名及密码在配置文件(`configs/gin-scaffold/config.toml`)中，默认为：root/abc-123
+[表定义详解](/doc/model.md)
 
-#### 运行服务
+````shell
+$: scaffold -i=.go -t=model generate -d="database" -u="root" -p="pass" github.com/yourname/model
 
-> 也可以使用脚本运行(详情可查看`Makefile`)：`make start`
+````
 
-```bash
-gin-scaffold -c ./configs/gin-scaffold/config.toml -m ./configs/gin-scaffold/model.conf -swagger ./internal/app/swagger
-```
+##### 生成管理平台
 
-#### 温馨提醒
+[表定义例子](/doc/portal.sql)
 
-1. 默认配置采用的是 sqlite 数据库，数据库文件(`自动生成`)在`data/gadmin.db`。如果想切换为`mysql`或`postgres`，请更改配置文件，并创建数据库（数据库创建脚本在`script`目录下）。
-2. 日志的默认配置为标准输出，如果想切换到写入文件或写入到 gorm 存储，可以自行切换配置。
+[表定义详解](/doc/portal.md)
 
-## 前端实现
+````shell
+# 生成项目
+$: scaffold -i=.go -i=.html -i=routes -t=portal generate -d="database" -u="root" -p="pass" github.com/yourname/portal
 
-- [gin-admin-react](https://github.com/afanxia/gin-scaffold-react)：基于[Ant Design React](https://ant.design)的实现版本
+# 修改数据库配置 github.com/yourname/portal/conf/app.conf
 
-## Swagger 文档的使用
+# 运行项目
+$: revel run github.com/yourname/portal
+````
 
-> 文档规则请参考：[https://github.com/teambition/swaggo/wiki/Declarative-Comments-Format](https://github.com/teambition/swaggo/wiki/Declarative-Comments-Format)
+##### 自定义模板
 
-### 安装工具并生成文档
+[模版定义详解](/doc/template.md)
 
-```
-go get -u -v github.com/teambition/swaggo
-swaggo -s ./internal/app/swagger.go -p . -o ./internal/app/swagger
-```
+#### Thanks 
 
-生成文档之后，可在浏览器中输入地址访问：[http://127.0.0.1:10088/swagger/](http://127.0.0.1:10088/swagger/)
-
-## 项目结构概览
-
-```
-├── cmd
-│   └── gin-scaffold：主服务
-├── configs
-│   └── gin-scaffold：配置文件目录
-├── docs：文档
-├── internal：内部应用
-│   └── app
-│       └── gin-scaffold：主应用目录
-│           ├── bll：业务逻辑层
-│           ├── config：配置参数（与配置文件一一映射）
-│           ├── context：统一上下文管理
-│           ├── ginplus：gin的扩展函数库
-│           ├── middleware：gin中间件
-│           ├── model：存储层
-│           │   └── gorm
-│           │       ├── entity：与数据库映射的实体层
-│           │       └── model：gorm实现的存储层
-│           ├── routers：路由层
-│           │   └── api：/api路由模块
-│           │       └── ctl：/api路由模块对应的控制器层
-│           ├── schema：对象模型
-│           ├── swagger：swagger静态目录
-│           └── test：单元测试
-├── pkg：公共模块
-│   ├── auth：认证模块
-│   │   └── jwtauth
-│   │       └── store
-│   │           ├── buntdb
-│   │           └── redis
-│   ├── errors：错误处理模块
-│   ├── gormplus：gorm扩展实现
-│   ├── logger：日志模块
-│   │   └── hook
-│   │       └── gorm
-│   └── util：工具类
-├── scripts：执行脚本
-└── vendor：依赖包
-```
-
-## 感谢以下框架的开源支持
-
-- [Gin] - [https://gin-gonic.com/](https://gin-gonic.com/)
-- [GORM] - [http://gorm.io/](http://gorm.io/)
-- [Casbin] - [https://casbin.org/](https://casbin.org/)
-
-## MIT License
-
-    Copyright (c) 2019 Lyric
-
-## 与作者对话
-
-> 该项目是利用业余时间进行开发的，开发思路主要是来源于自己的项目积累及个人思考，如果您有更好的想法和建议请与我进行沟通，我非常期待！下面是我的微信二维码：
-
-<img src="./screenshot_wechat.jpeg" width="256" height="256" />
-
-[reportcard-url]: https://goreportcard.com/report/github.com/afanxia/gin-scaffold
-[reportcard-image]: https://goreportcard.com/badge/github.com/afanxia/gin-scaffold
-[godoc-url]: https://godoc.org/github.com/afanxia/gin-scaffold
-[godoc-image]: https://godoc.org/github.com/afanxia/gin-scaffold?status.svg
-[license-url]: http://opensource.org/licenses/MIT
-[license-image]: https://img.shields.io/npm/l/express.svg
+[jaywcjlove](https://github.com/jaywcjlove) 提供的datetime控件js脚本
