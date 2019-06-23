@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/LyricTian/gin-admin/internal/app"
-	"github.com/LyricTian/gin-admin/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
 	"github.com/gin-gonic/gin"
 )
 

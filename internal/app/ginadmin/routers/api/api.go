@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/bll"
-	"github.com/LyricTian/gin-admin/internal/app/middleware"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/routers/api/ctl"
-	"github.com/LyricTian/gin-admin/pkg/auth"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/middleware"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/routers/api/ctl"
+	"github.com/afanxia/gin-scaffold/pkg/auth"
 	"github.com/casbin/casbin"
 	"github.com/gin-gonic/gin"
 )

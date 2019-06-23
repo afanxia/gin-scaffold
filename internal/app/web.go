@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/internal/app/middleware"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/routers/api"
-	"github.com/LyricTian/gin-admin/pkg/logger"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app/middleware"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/routers/api"
+	"github.com/afanxia/gin-scaffold/pkg/logger"
 	"github.com/gin-gonic/gin"
 )
 

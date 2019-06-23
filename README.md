@@ -28,7 +28,7 @@
 ### 获取代码
 
 ```
-go get -v github.com/LyricTian/gin-admin/cmd/ginadmin
+go get -v github.com/afanxia/gin-scaffold/cmd/ginadmin
 ```
 
 ### 运行
@@ -50,7 +50,7 @@ ginadmin -c ./configs/ginadmin/config.toml -m ./configs/ginadmin/model.conf -swa
 
 ## 前端实现
 
-- [gin-admin-react](https://github.com/LyricTian/gin-admin-react)：基于[Ant Design React](https://ant.design)的实现版本
+- [gin-admin-react](https://github.com/afanxia/gin-scaffold-react)：基于[Ant Design React](https://ant.design)的实现版本
 
 ## Swagger 文档的使用
 
@@ -123,9 +123,9 @@ swaggo -s ./internal/app/swagger.go -p . -o ./internal/app/swagger
 
 <img src="./screenshot_wechat.jpeg" width="256" height="256" />
 
-[reportcard-url]: https://goreportcard.com/report/github.com/LyricTian/gin-admin
-[reportcard-image]: https://goreportcard.com/badge/github.com/LyricTian/gin-admin
-[godoc-url]: https://godoc.org/github.com/LyricTian/gin-admin
-[godoc-image]: https://godoc.org/github.com/LyricTian/gin-admin?status.svg
+[reportcard-url]: https://goreportcard.com/report/github.com/afanxia/gin-scaffold
+[reportcard-image]: https://goreportcard.com/badge/github.com/afanxia/gin-scaffold
+[godoc-url]: https://godoc.org/github.com/afanxia/gin-scaffold
+[godoc-image]: https://godoc.org/github.com/afanxia/gin-scaffold?status.svg
 [license-url]: http://opensource.org/licenses/MIT
 [license-image]: https://img.shields.io/npm/l/express.svg

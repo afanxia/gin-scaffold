@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	icontext "github.com/LyricTian/gin-admin/internal/app/context"
-	"github.com/LyricTian/gin-admin/pkg/gormplus"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	icontext "github.com/afanxia/gin-scaffold/internal/app/context"
+	"github.com/afanxia/gin-scaffold/pkg/gormplus"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 
 // 表名前缀

@@ -5,10 +5,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model/gorm"
-	"github.com/LyricTian/gin-admin/pkg/gormplus"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model/gorm"
+	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 )
 
 // InitStore 初始化存储，返回统一的存储接口

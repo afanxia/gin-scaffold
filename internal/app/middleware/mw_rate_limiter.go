@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/internal/app/ginplus"
-	"github.com/LyricTian/gin-admin/pkg/errors"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app/ginplus"
+	"github.com/afanxia/gin-scaffold/pkg/errors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 	"github.com/go-redis/redis_rate"

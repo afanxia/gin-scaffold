@@ -8,10 +8,10 @@ import (
 	"sync/atomic"
 	"syscall"
 
-	"github.com/LyricTian/gin-admin/internal/app"
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/pkg/logger"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	"github.com/afanxia/gin-scaffold/internal/app"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/pkg/logger"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 
 // VERSION 版本号，

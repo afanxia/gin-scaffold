@@ -6,12 +6,12 @@ import (
 	"net/http"
 
 	"github.com/LyricTian/captcha"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/auth"
-	"github.com/LyricTian/gin-admin/pkg/errors"
-	"github.com/LyricTian/gin-admin/pkg/logger"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/pkg/auth"
+	"github.com/afanxia/gin-scaffold/pkg/errors"
+	"github.com/afanxia/gin-scaffold/pkg/logger"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 
 // 定义错误

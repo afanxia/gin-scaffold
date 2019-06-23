@@ -3,10 +3,10 @@ package bll
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/errors"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/pkg/errors"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 
 // NewMenu 创建菜单管理实例

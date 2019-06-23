@@ -4,12 +4,12 @@ import (
 	"context"
 	"sync"
 
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	icontext "github.com/LyricTian/gin-admin/internal/app/context"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/auth"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	icontext "github.com/afanxia/gin-scaffold/internal/app/context"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/pkg/auth"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 	"github.com/casbin/casbin"
 )
 

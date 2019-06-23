@@ -1,4 +1,4 @@
-module github.com/LyricTian/gin-admin
+module github.com/afanxia/gin-scaffold
 
 go 1.12
 

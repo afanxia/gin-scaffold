@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model/gorm/entity"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/errors"
-	"github.com/LyricTian/gin-admin/pkg/gormplus"
-	"github.com/LyricTian/gin-admin/pkg/logger"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model/gorm/entity"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/pkg/errors"
+	"github.com/afanxia/gin-scaffold/pkg/gormplus"
+	"github.com/afanxia/gin-scaffold/pkg/logger"
 )
 
 // NewRole 创建角色存储实例

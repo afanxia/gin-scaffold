@@ -3,10 +3,10 @@ package app
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/bll"
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/schema"
-	"github.com/LyricTian/gin-admin/pkg/util"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 
 // InitData 初始化应用数据

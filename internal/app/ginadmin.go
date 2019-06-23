@@ -3,11 +3,11 @@ package app
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/bll"
-	"github.com/LyricTian/gin-admin/internal/app/config"
-	"github.com/LyricTian/gin-admin/internal/app/ginadmin/model"
-	"github.com/LyricTian/gin-admin/pkg/auth"
-	"github.com/LyricTian/gin-admin/pkg/logger"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/config"
+	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
+	"github.com/afanxia/gin-scaffold/pkg/auth"
+	"github.com/afanxia/gin-scaffold/pkg/logger"
 	"github.com/casbin/casbin"
 	"github.com/google/gops/agent"
 )

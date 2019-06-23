@@ -2,53 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0e73767-e3f3-48d5-b32d-8c175e412292" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/cmd/ginadmin/main.go" afterPath="$PROJECT_DIR$/cmd/ginadmin/main.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/auth.go" afterPath="$PROJECT_DIR$/internal/app/auth.go" />
+      <change beforePath="$PROJECT_DIR$/go.mod" afterPath="$PROJECT_DIR$/go.mod" />
+      <change beforePath="$PROJECT_DIR$/internal/app/auth.go" afterPath="$PROJECT_DIR$/internal/app/auth.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/captcha.go" afterPath="$PROJECT_DIR$/internal/app/captcha.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_demo.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_demo.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_login.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_login.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_menu.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_menu.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_role.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_role.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_user.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/b_user.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/bll/bll.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/bll/bll.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/captcha.go" afterPath="$PROJECT_DIR$/internal/app/captcha.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/config/config.go" afterPath="$PROJECT_DIR$/internal/app/config/config.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/context/context.go" afterPath="$PROJECT_DIR$/internal/app/context/context.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/ginadmin.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/ginplus/ginplus.go" afterPath="$PROJECT_DIR$/internal/app/ginplus/ginplus.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/init_data.go" afterPath="$PROJECT_DIR$/internal/app/init_data.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/logger.go" afterPath="$PROJECT_DIR$/internal/app/logger.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/middleware.go" afterPath="$PROJECT_DIR$/internal/app/middleware/middleware.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_auth.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_auth.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_casbin.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_casbin.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_cors.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_cors.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_logger.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_logger.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_rate_limiter.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_rate_limiter.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_recover.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_recover.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_trace.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_trace.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/middleware/mw_www.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_www.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_demo.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_demo.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_menu.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_menu.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_role.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_role.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_user.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/e_user.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/entity.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/entity/entity.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/gorm.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/gorm.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_demo.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_demo.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_menu.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_menu.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_role.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_role.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_trans.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_trans.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_user.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/m_user.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/model.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/gorm/model/model.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/m_demo.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/m_demo.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/m_menu.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/m_menu.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/m_role.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/m_role.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/model/m_user.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/model/m_user.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/api.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/api.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_demo.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_demo.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_login.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_login.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_menu.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_menu.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_role.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_role.go" />
       <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_user.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/routers/api/ctl/c_user.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/store.go" afterPath="$PROJECT_DIR$/internal/app/store.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger.go" afterPath="$PROJECT_DIR$/internal/app/swagger.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/favicon-16x16.png" afterPath="$PROJECT_DIR$/internal/app/swagger/favicon-16x16.png" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/favicon-32x32.png" afterPath="$PROJECT_DIR$/internal/app/swagger/favicon-32x32.png" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/index.html" afterPath="$PROJECT_DIR$/internal/app/swagger/index.html" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/oauth2-redirect.html" afterPath="$PROJECT_DIR$/internal/app/swagger/oauth2-redirect.html" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui-bundle.js" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui-bundle.js" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui-bundle.js.map" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui-bundle.js.map" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui-standalone-preset.js" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui-standalone-preset.js" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui-standalone-preset.js.map" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui-standalone-preset.js.map" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui.css" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui.css" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui.css.map" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui.css.map" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui.js" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui.js" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger-ui.js.map" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger-ui.js.map" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/swagger/swagger.json" afterPath="$PROJECT_DIR$/internal/app/swagger/swagger.json" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/test/doc.go" afterPath="$PROJECT_DIR$/internal/app/test/doc.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/test/t_init_test.go" afterPath="$PROJECT_DIR$/internal/app/test/t_init_test.go" />
-      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/web.go" afterPath="$PROJECT_DIR$/internal/app/web.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/test/t_menu_test.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/test/t_menu_test.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/test/t_role_test.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/test/t_role_test.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginadmin/test/t_user_test.go" afterPath="$PROJECT_DIR$/internal/app/ginadmin/test/t_user_test.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/ginplus/ginplus.go" afterPath="$PROJECT_DIR$/internal/app/ginplus/ginplus.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/init_data.go" afterPath="$PROJECT_DIR$/internal/app/init_data.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/logger.go" afterPath="$PROJECT_DIR$/internal/app/logger.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/middleware.go" afterPath="$PROJECT_DIR$/internal/app/middleware/middleware.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_auth.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_auth.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_casbin.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_casbin.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_cors.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_cors.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_logger.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_logger.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_rate_limiter.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_rate_limiter.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_recover.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_recover.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/middleware/mw_trace.go" afterPath="$PROJECT_DIR$/internal/app/middleware/mw_trace.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/store.go" afterPath="$PROJECT_DIR$/internal/app/store.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/swagger.go" afterPath="$PROJECT_DIR$/internal/app/swagger.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/test/t_init_test.go" afterPath="$PROJECT_DIR$/internal/app/test/t_init_test.go" />
+      <change beforePath="$PROJECT_DIR$/internal/app/web.go" afterPath="$PROJECT_DIR$/internal/app/web.go" />
+      <change beforePath="$PROJECT_DIR$/pkg/auth/jwtauth/jwt_auth.go" afterPath="$PROJECT_DIR$/pkg/auth/jwtauth/jwt_auth.go" />
+      <change beforePath="$PROJECT_DIR$/pkg/logger/hook/gorm/gorm.go" afterPath="$PROJECT_DIR$/pkg/logger/hook/gorm/gorm.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,7 +72,7 @@
             <state relative-caret-position="234">
               <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
               <folding>
-                <element signature="e#13#192#0" expanded="true" />
+                <element signature="e#13#194#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,10 +101,10 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmd/ginadmin/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="630">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
-                <element signature="e#14#278#0" expanded="true" />
+                <element signature="e#14#282#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,7 +183,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="953" />
     <option name="height" value="1050" />
@@ -196,61 +203,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="gin-scaffold" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gin-scaffold" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+              <item name="gin-scaffold" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gin-scaffold" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
-              <item name="ginadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="gin-scaffold" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gin-scaffold" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-              <item name="ginadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gin-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gin-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ginadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="gin-scaffold" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gin-scaffold" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="LyricTian" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,6 +289,66 @@
       <module name="" />
       <envs />
     </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -329,7 +374,7 @@
       <go_parameters value="-i" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/" />
-      <package value="github.com/LyricTian/gin-admin" />
+      <package value="github.com/afanxia/gin-scaffold" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -338,27 +383,7 @@
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="DIRECTORY" />
-      <package value="github.com/LyricTian/gin-admin" />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <package value="github.com/afanxia/gin-scaffold" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -417,40 +442,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -462,12 +453,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="gin-admin" />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -568,15 +553,15 @@
       <workItem from="1561208648457" duration="1199000" />
       <workItem from="1561211760189" duration="4107000" />
       <workItem from="1561216766933" duration="49000" />
+      <workItem from="1561252828905" duration="1408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5398000" />
+    <option name="totallyTimeSpent" value="6806000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="1922" height="1051" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1" y="0" width="1922" height="1051" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -585,13 +570,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2593583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12727273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -599,8 +584,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Flutter Inspector" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -629,7 +614,7 @@
         <state relative-caret-position="234">
           <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding>
-            <element signature="e#13#192#0" expanded="true" />
+            <element signature="e#13#194#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -679,7 +664,7 @@
         <state relative-caret-position="252">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <element signature="e#14#278#0" expanded="true" />
+            <element signature="e#14#282#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -934,7 +919,7 @@
         <state relative-caret-position="234">
           <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding>
-            <element signature="e#13#192#0" expanded="true" />
+            <element signature="e#13#194#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,10 +981,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/ginadmin/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="630">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#14#278#0" expanded="true" />
+            <element signature="e#14#282#0" expanded="true" />
           </folding>
         </state>
       </provider>
