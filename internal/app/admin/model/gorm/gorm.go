@@ -1,9 +1,9 @@
 package gorm
 
 import (
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model/gorm/entity"
-	gmodel "github.com/afanxia/gin-scaffold/internal/app/ginadmin/model/gorm/model"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model/gorm/entity"
+	gmodel "github.com/afanxia/gin-scaffold/internal/app/admin/model/gorm/model"
 	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 )
 

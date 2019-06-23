@@ -4,7 +4,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/util"
 	"github.com/stretchr/testify/assert"
 )

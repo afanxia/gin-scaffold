@@ -1,9 +1,9 @@
 package api
 
 import (
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/bll"
 	"github.com/afanxia/gin-scaffold/internal/app/middleware"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/routers/api/ctl"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/routers/api/ctl"
 	"github.com/afanxia/gin-scaffold/pkg/auth"
 	"github.com/casbin/casbin"
 	"github.com/gin-gonic/gin"

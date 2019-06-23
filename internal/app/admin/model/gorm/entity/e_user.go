@@ -3,7 +3,7 @@ package entity
 import (
 	"context"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 )
 

@@ -3,8 +3,8 @@ package bll
 import (
 	"context"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/errors"
 	"github.com/afanxia/gin-scaffold/pkg/util"
 )

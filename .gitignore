@@ -12,11 +12,11 @@
 *.out
 
 *.DS_Store
-/cmd/ginadmin/ginadmin
+/cmd/gin-scaffold/gin-scaffold
 /release
 /data
 /internal/app/test/data
-/internal/app/ginadmin/test/data
+/internal/app/admin/test/data
 
 # IDE
 /.idea

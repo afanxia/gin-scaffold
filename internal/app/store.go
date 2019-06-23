@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 
 	"github.com/afanxia/gin-scaffold/internal/app/config"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model/gorm"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model/gorm"
 	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 )
 

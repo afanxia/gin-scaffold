@@ -8,7 +8,7 @@ import (
 
 	"github.com/afanxia/gin-scaffold/internal/app/config"
 	"github.com/afanxia/gin-scaffold/internal/app/middleware"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/routers/api"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/routers/api"
 	"github.com/afanxia/gin-scaffold/pkg/logger"
 	"github.com/gin-gonic/gin"
 )

@@ -3,7 +3,7 @@ package model
 import (
 	"context"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	icontext "github.com/afanxia/gin-scaffold/internal/app/context"
 	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 	"github.com/jinzhu/gorm"

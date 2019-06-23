@@ -6,8 +6,8 @@ import (
 
 	"github.com/afanxia/gin-scaffold/internal/app/config"
 	icontext "github.com/afanxia/gin-scaffold/internal/app/context"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/model"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/model"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/auth"
 	"github.com/afanxia/gin-scaffold/pkg/util"
 	"github.com/casbin/casbin"

@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	icontext "github.com/afanxia/gin-scaffold/internal/app/context"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/errors"
 	"github.com/afanxia/gin-scaffold/pkg/logger"
 	"github.com/afanxia/gin-scaffold/pkg/util"

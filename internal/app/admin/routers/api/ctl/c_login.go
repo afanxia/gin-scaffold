@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	"github.com/LyricTian/captcha"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/bll"
 	"github.com/afanxia/gin-scaffold/internal/app/config"
 	"github.com/afanxia/gin-scaffold/internal/app/ginplus"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/errors"
 	"github.com/afanxia/gin-scaffold/pkg/logger"
 	"github.com/gin-gonic/gin"

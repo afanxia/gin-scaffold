@@ -3,9 +3,9 @@ package app
 import (
 	"context"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/bll"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/bll"
 	"github.com/afanxia/gin-scaffold/internal/app/config"
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/util"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 	"github.com/afanxia/gin-scaffold/pkg/gormplus"
 )
 

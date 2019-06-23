@@ -3,7 +3,7 @@ package model
 import (
 	"context"
 
-	"github.com/afanxia/gin-scaffold/internal/app/ginadmin/schema"
+	"github.com/afanxia/gin-scaffold/internal/app/admin/schema"
 )
 
 // IDemo demo存储接口
