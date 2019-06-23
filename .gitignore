@@ -17,3 +17,6 @@
 /data
 /internal/app/test/data
 /internal/app/ginadmin/test/data
+
+# IDE
+/.idea
