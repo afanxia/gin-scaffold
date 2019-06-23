@@ -42,7 +42,7 @@ type Login struct {
 }
 
 func (a *Login) getFuncName(name string) string {
-	return fmt.Sprintf("ginadmin.bll.Login.%s", name)
+	return fmt.Sprintf("gin-scaffold.bll.Login.%s", name)
 }
 
 // GetCaptchaID 获取图形验证码ID

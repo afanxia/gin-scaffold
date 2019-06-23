@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	configFile = "../../../../configs/ginadmin/config.toml"
+	configFile = "../../../../configs/gin-scaffold/config.toml"
 	apiPrefix  = "/api/"
 )
 
@@ -32,7 +32,7 @@ func init() {
 
 	cfg := config.GetGlobalConfig()
 	cfg.RunMode = "debug"
-	cfg.CasbinModelConf = "../../../../configs/ginadmin/model.conf"
+	cfg.CasbinModelConf = "../../../../configs/gin-scaffold/model.conf"
 
 	ctx := context.Background()
 	obj, _, err := app.InitObject(ctx)

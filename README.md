@@ -28,19 +28,19 @@
 ### 获取代码
 
 ```
-go get -v github.com/afanxia/gin-scaffold/cmd/ginadmin
+go get -v github.com/afanxia/gin-scaffold/cmd/gin-scaffold
 ```
 
 ### 运行
 
-> root 用户的用户名及密码在配置文件(`configs/ginadmin/config.toml`)中，默认为：root/abc-123
+> root 用户的用户名及密码在配置文件(`configs/gin-scaffold/config.toml`)中，默认为：root/abc-123
 
 #### 运行服务
 
 > 也可以使用脚本运行(详情可查看`Makefile`)：`make start`
 
 ```bash
-ginadmin -c ./configs/ginadmin/config.toml -m ./configs/ginadmin/model.conf -swagger ./internal/app/swagger
+gin-scaffold -c ./configs/gin-scaffold/config.toml -m ./configs/gin-scaffold/model.conf -swagger ./internal/app/swagger
 ```
 
 #### 温馨提醒
@@ -69,13 +69,13 @@ swaggo -s ./internal/app/swagger.go -p . -o ./internal/app/swagger
 
 ```
 ├── cmd
-│   └── ginadmin：主服务
+│   └── gin-scaffold：主服务
 ├── configs
-│   └── ginadmin：配置文件目录
+│   └── gin-scaffold：配置文件目录
 ├── docs：文档
 ├── internal：内部应用
 │   └── app
-│       └── ginadmin：主应用目录
+│       └── gin-scaffold：主应用目录
 │           ├── bll：业务逻辑层
 │           ├── config：配置参数（与配置文件一一映射）
 │           ├── context：统一上下文管理

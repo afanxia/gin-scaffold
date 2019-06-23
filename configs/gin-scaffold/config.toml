@@ -28,7 +28,7 @@ format = "text"
 # 日志输出(支持：stdout/stderr/file)
 output = "stdout"
 # 指定日志输出的文件路径
-output_file = "data/ginadmin.log"
+output_file = "data/gin-scaffold.log"
 # 是否启用日志钩子
 enable_hook = false
 # 日志钩子(支持：gorm)
@@ -83,7 +83,7 @@ real_name = "超级管理员"
 # 签名方式(支持：HS512/HS384/HS512)
 signing_method = "HS512"
 # 签名key
-signing_key = "GINADMIN"
+signing_key = "GIN-SCAFFOLD"
 # 过期时间（单位秒）
 expired = 7200
 # 存储(支持：file/redis)
@@ -167,7 +167,7 @@ user = "root"
 # 密码
 password = "123456"
 # 数据库
-db_name = "ginadmin"
+db_name = "gin-scaffold"
 # 连接参数
 parameters = "charset=utf8mb4&parseTime=True&loc=Local&allowNativePasswords=true"
 
@@ -182,9 +182,9 @@ user = "root"
 # 密码
 password = "123456"
 # 数据库
-db_name = "ginadmin"
+db_name = "gin-scaffold"
 
 # sqlite数据库配置
 [sqlite3]
 # 数据库路径
-path = "data/ginadmin.db"
+path = "data/gin-scaffold.db"

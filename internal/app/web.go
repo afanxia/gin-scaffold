@@ -67,10 +67,10 @@ func InitHTTPServer(ctx context.Context, handler http.Handler) func() {
 	}
 
 	go func() {
-		logger.StartSpan(ctx, "HTTP服务初始化", "ginadmin.InitHTTPServer").Printf("HTTP服务开始启动，地址监听在：[%s]", addr)
+		logger.StartSpan(ctx, "HTTP服务初始化", "gin-scaffold.InitHTTPServer").Printf("HTTP服务开始启动，地址监听在：[%s]", addr)
 		err := srv.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
-			logger.StartSpan(ctx, "监听HTTP服务", "ginadmin.InitHTTPServer").Errorf(err.Error())
+			logger.StartSpan(ctx, "监听HTTP服务", "gin-scaffold.InitHTTPServer").Errorf(err.Error())
 		}
 	}()
 
@@ -80,7 +80,7 @@ func InitHTTPServer(ctx context.Context, handler http.Handler) func() {
 
 		srv.SetKeepAlivesEnabled(false)
 		if err := srv.Shutdown(ctx); err != nil {
-			logger.StartSpan(ctx, "关闭HTTP服务", "ginadmin.InitHTTPServer").Errorf(err.Error())
+			logger.StartSpan(ctx, "关闭HTTP服务", "gin-scaffold.InitHTTPServer").Errorf(err.Error())
 		}
 	}
 }

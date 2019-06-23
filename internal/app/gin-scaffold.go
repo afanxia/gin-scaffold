@@ -30,7 +30,7 @@ func Init(ctx context.Context) func() {
 	if c := config.GetGlobalConfig().Monitor; c.Enable {
 		err = agent.Listen(agent.Options{Addr: c.Addr, ConfigDir: c.ConfigDir, ShutdownCleanup: true})
 		if err != nil {
-			logger.StartSpan(ctx, "开启[agent]服务监听", "ginadmin.Init").Errorf(err.Error())
+			logger.StartSpan(ctx, "开启[agent]服务监听", "gin-scaffold.Init").Errorf(err.Error())
 		}
 	}
 
@@ -43,7 +43,7 @@ func Init(ctx context.Context) func() {
 
 	err = InitData(ctx, obj)
 	if err != nil {
-		logger.StartSpan(ctx, "初始化应用数据", "ginadmin.Init").Errorf(err.Error())
+		logger.StartSpan(ctx, "初始化应用数据", "gin-scaffold.Init").Errorf(err.Error())
 	}
 
 	app := InitWeb(ctx, obj)
@@ -91,7 +91,7 @@ func InitObject(ctx context.Context) (*Object, func(), error) {
 		if auth != nil {
 			err := auth.Release()
 			if err != nil {
-				logger.StartSpan(ctx, "释放认证资源", "ginadmin.InitObject").Errorf(err.Error())
+				logger.StartSpan(ctx, "释放认证资源", "gin-scaffold.InitObject").Errorf(err.Error())
 			}
 		}
 	}, nil
