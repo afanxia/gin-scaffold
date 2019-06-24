@@ -10,15 +10,16 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/codegangsta/cli"
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/afanxia/gin-scaffold/symbol"
+	"github.com/codegangsta/cli"
+	// mysql
+	_ "github.com/go-sql-driver/mysql"
 )
 
-func src_template_dir(ctx *cli.Context) (string, error) {
-	template_folder_dir := ctx.GlobalString("template-folder")
-	if template_folder_dir != "" {
-		return template_folder_dir, nil
+func srcTemplateDir(ctx *cli.Context) (string, error) {
+	templateFolderDir := ctx.GlobalString("template-folder")
+	if templateFolderDir != "" {
+		return templateFolderDir, nil
 	}
 
 	template := ctx.GlobalString("template")
@@ -29,7 +30,7 @@ func src_template_dir(ctx *cli.Context) (string, error) {
 	return path.Join(filepath.SplitList(gopath)[0], "src", "github.com/afanxia/gin-scaffold", "templates", template), nil
 }
 
-func dest_project_dir(project string) (string, error) {
+func destProjectDir(project string) (string, error) {
 	gopath := build.Default.GOPATH
 	if gopath == "" {
 		return "", errors.New("Abort: GOPATH environment variable is not set. ")
@@ -48,12 +49,12 @@ func hasSuffix(fpath string, suffixes []string) bool {
 }
 
 func Generate(ctx *cli.Context) {
-	template_dir, err := src_template_dir(ctx)
+	templateDir, err := srcTemplateDir(ctx)
 	if err != nil {
 		fmt.Println("scaffold generate failed:", err)
 		return
 	}
-	if template_dir == "" {
+	if templateDir == "" {
 		fmt.Println("scaffold generate failed: none templates")
 		return
 	}
@@ -65,7 +66,7 @@ func Generate(ctx *cli.Context) {
 	}
 
 	project := args[0]
-	project_dir, err := dest_project_dir(project)
+	projectDir, err := destProjectDir(project)
 	if err != nil {
 		fmt.Println("scaffold generate failed:", err)
 		return
@@ -95,7 +96,7 @@ func Generate(ctx *cli.Context) {
 		return
 	}
 
-	if err := filepath.Walk(template_dir, func(srcPath string, info os.FileInfo, err error) error {
+	if err := filepath.Walk(templateDir, func(srcPath string, info os.FileInfo, err error) error {
 		data := map[string]interface{}{
 			"project": project,
 			"tables":  tables,
@@ -109,7 +110,7 @@ func Generate(ctx *cli.Context) {
 				return err
 			}
 
-			destPath := path.Join(project_dir, strings.TrimPrefix(pathName, template_dir))
+			destPath := path.Join(projectDir, strings.TrimPrefix(pathName, templateDir))
 
 			if info.IsDir() {
 				if err := os.MkdirAll(destPath, info.Mode()); err != nil {

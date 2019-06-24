@@ -8,6 +8,7 @@ const version = "1.0.1"
 const author = ""
 const support = "afanxia@163.com"
 
+// App is an app to generate a seed project based on sql tables
 func App() *cli.App {
 	app := cli.NewApp()
 
