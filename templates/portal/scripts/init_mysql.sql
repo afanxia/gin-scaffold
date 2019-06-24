@@ -1,2 +1,2 @@
 -- Create a database
-CREATE DATABASE `[[.project]]` DEFAULT CHARACTER SET = `utf8mb4`;
+CREATE DATABASE `[[.projectName]]` DEFAULT CHARACTER SET = `utf8mb4`;

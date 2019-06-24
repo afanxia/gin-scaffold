@@ -1,4 +1,4 @@
-module [[.project]]
+module [[.projectName]]
 
 go 1.12
 

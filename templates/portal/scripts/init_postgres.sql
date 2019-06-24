@@ -1,2 +1,2 @@
 -- Create a database
-create database [[.project]] with encoding = 'UTF8' LC_CTYPE = 'en_US.UTF-8' LC_COLLATE = 'en_US.UTF-8' template = template1;
+create database [[.projectName]] with encoding = 'UTF8' LC_CTYPE = 'en_US.UTF-8' LC_COLLATE = 'en_US.UTF-8' template = template1;

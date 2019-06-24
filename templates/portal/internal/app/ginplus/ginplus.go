@@ -16,7 +16,7 @@ import (
 
 // 定义上下文中的键
 const (
-	prefix = "[[.project]]"
+	prefix = "[[.projectName]]"
 	// UserIDKey 存储上下文中的键(用户ID)
 	UserIDKey = prefix + "/user_id"
 	// TraceIDKey 存储上下文中的键(跟踪ID)
@@ -26,7 +26,7 @@ const (
 )
 
 func getFuncName(name string) string {
-	return fmt.Sprintf("[[.project]].ginplus.%s", name)
+	return fmt.Sprintf("[[.projectName]].ginplus.%s", name)
 }
 
 // NewContext get context.Context

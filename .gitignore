@@ -12,7 +12,7 @@
 *.out
 
 *.DS_Store
-/templates/portal/cmd/gin-scaffold/gin-scaffold
+/templates/portal/cmd/[[.projectName]]/[[.projectName]]
 /templates/portal/release
 /templates/portal/data
 /templates/portal/internal/app/test/data

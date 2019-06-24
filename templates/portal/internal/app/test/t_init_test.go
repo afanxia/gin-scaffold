@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	configFile = "../../../../configs/[[.project]]/config.toml"
+	configFile = "../../../../configs/[[.projectName]]/config.toml"
 	apiPrefix  = "/api/"
 )
 
@@ -32,7 +32,7 @@ func init() {
 
 	cfg := config.GetGlobalConfig()
 	cfg.RunMode = "debug"
-	cfg.CasbinModelConf = "../../../../configs/[[.project]]/model.conf"
+	cfg.CasbinModelConf = "../../../../configs/[[.projectName]]/model.conf"
 
 	ctx := context.Background()
 	obj, _, err := app.InitObject(ctx)

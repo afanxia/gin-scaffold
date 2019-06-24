@@ -12,6 +12,7 @@ import (
 
 	"github.com/afanxia/gin-scaffold/symbol"
 	"github.com/codegangsta/cli"
+
 	// mysql
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -39,6 +40,11 @@ func destProjectDir(project string) (string, error) {
 	return path.Join(filepath.SplitList(gopath)[0], "src", project), nil
 }
 
+func projectName(project string) string {
+	idx := strings.Split(project, "/")
+	return idx[len(idx)-1]
+}
+
 func hasSuffix(fpath string, suffixes []string) bool {
 	for _, suffix := range suffixes {
 		if strings.HasSuffix(fpath, suffix) {
@@ -48,6 +54,7 @@ func hasSuffix(fpath string, suffixes []string) bool {
 	return false
 }
 
+// Generate is the main entry
 func Generate(ctx *cli.Context) {
 	templateDir, err := srcTemplateDir(ctx)
 	if err != nil {
@@ -67,6 +74,7 @@ func Generate(ctx *cli.Context) {
 
 	project := args[0]
 	projectDir, err := destProjectDir(project)
+	projectName := projectName(project)
 	if err != nil {
 		fmt.Println("scaffold generate failed:", err)
 		return
@@ -100,6 +108,7 @@ func Generate(ctx *cli.Context) {
 		data := map[string]interface{}{
 			"project": project,
 			"tables":  tables,
+			"projectName": projectName,
 		}
 		for i, table := range tables {
 			data["table"] = table
@@ -113,8 +122,14 @@ func Generate(ctx *cli.Context) {
 			destPath := path.Join(projectDir, strings.TrimPrefix(pathName, templateDir))
 
 			if info.IsDir() {
-				if err := os.MkdirAll(destPath, info.Mode()); err != nil {
-					return err
+				if info.Name() == "vendor" { // gonna skip "vendor" directory
+					if err := symbol.CopyDir(srcPath, destPath, force); err != nil {
+						return err
+					}
+				} else {
+					if err := os.MkdirAll(destPath, info.Mode()); err != nil {
+						return err
+					}
 				}
 			} else {
 				if hasSuffix(pathName, ignores) {
