@@ -1,11 +1,11 @@
-scaffold
+gin-scaffold
 ===
 
-一款基于数据库定义的代码生成器。
+Go project generator, create PROJECT from SQL.
 
-### 它是如何工作的？
+### How does it work?
 
-正如我们所知, go 中进行 json 字符串的编码/解码过程中, 可以通过对象定义时字段的tag定义, 对字段进行补充说明。如下例:
+Just like golang json encoding, when you want to marshal/unmarshal an object to json string, we add tag description for the object field. As an example:
 
 ````go
 type JsonSomething struct{
@@ -13,62 +13,41 @@ type JsonSomething struct{
   BField  string    `json:"y"`
 }
 ````
-同样的方法, scaffold 通过数据库定义中的字段(或表)的 COMMENT 定义来对相应字段(或表)进行补充说明, 在根据模板进行代码生成。如:
+Similarly, scaffold use database table schemas' field comment as the tag description for generating code. For example,
 
 ````sql
-CREATE TABLE `users` (
-  `id`          INT UNSIGNED     NOT NULL  PRIMARY KEY AUTO_INCREMENT COMMENT 'caption:"编号"',
-  `name`        VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"名称"',
-  `mailbox`     VARCHAR(128)     NOT NULL  DEFAULT '' COMMENT 'caption:"邮箱"',
-  `sex`         TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"性别"',
-  `description` VARCHAR(256)     NOT NULL  DEFAULT '' COMMENT 'caption:"描述"',
-  `password`    VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"密码"',
-  `head_url`    VARCHAR(255)     NOT NULL  DEFAULT '' COMMENT 'caption:"头像"',
-  `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"状态"',
-  `created_at`   TIMESTAMP       NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT 'caption:"创建时间"'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT 'caption:"会员"';
+CREATE TABLE `user_accounts` (
+  `id`          INT UNSIGNED     NOT NULL  PRIMARY KEY AUTO_INCREMENT COMMENT 'caption:"No"',
+  `name`        VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"Name" column:"y" update:"y" query:"like" widget:"text" valid:"required(),min(6),max(16)"',
+  `mailbox`     VARCHAR(128)     NOT NULL  DEFAULT '' COMMENT 'caption:"Email" column:"y" query:"like" widget:"email" valid:"required(),email()"',
+  `sex`         TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"Sex" column:"y" update:"y" widget:"selection" relation:"user_accounts_sex"',
+  `description` VARCHAR(256)     NOT NULL  DEFAULT '' COMMENT 'caption:"Description" update:"y" widget:"textarea"',
+  `password`    VARCHAR(32)      NOT NULL  DEFAULT '' COMMENT 'caption:"Password" update:"y" widget:"password" valid:"required()"',
+  `head_url`    VARCHAR(255)     NOT NULL  DEFAULT '' COMMENT 'caption:"Header Image" update:"y" widget:"file"',
+  `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'caption:"Status" column:"y" update:"y" query:"eq" widget:"selection" relation:"user_accounts_status"',
+  `created_at`   TIMESTAMP       NOT NULL  DEFAULT CURRENT_TIMESTAMP COMMENT 'caption:"Create Time" widget:"datetime"',
+  `updated_at`   TIMESTAMP       NOT NULL  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'caption:"Update Time" column:"y" widget:"datetime"',
+  `deleted_at`   TIMESTAMP       NULL  DEFAULT NULL  COMMENT 'caption:"Delete Time" gotype:"*time.Time" ignore:"y" widget:"datetime"'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT 'caption:"Members" index:"y" import:"y" export:"y"';
 
 ````
-如定义表结构后, scaffold 就可以通过 模板函数读取到 comment 中的 caption 字段, 并根据模板生成代码了。
 
-### 快速开始
-
-##### 安装
+##### Quick Start
 
 ````shell
-$: go get github.com/afanxia/gin-scaffold
+# define a [PROJECT_NAME] in Makefile
+# generate a project
+$: make start
 
+# change mysql settings in [PROJECT_NAME]/configs/config.toml
+
+# start the generated project
+$: cd [GO_PATH]/src/[PROJECT_NAME]
+$: make start
 ````
-
-##### 生成model代码
-
-[表定义详解](/doc/model.md)
-
-````shell
-$: scaffold -i=.go -t=model generate -d="database" -u="root" -p="pass" github.com/yourname/model
-
-````
-
-##### 生成管理平台
-
-[表定义例子](/doc/portal.sql)
-
-[表定义详解](/doc/portal.md)
-
-````shell
-# 生成项目
-$: scaffold -i=.go -i=.html -i=routes -t=portal generate -d="database" -u="root" -p="pass" github.com/yourname/portal
-
-# 修改数据库配置 github.com/yourname/portal/conf/app.conf
-
-# 运行项目
-$: revel run github.com/yourname/portal
-````
-
-##### 自定义模板
-
-[模版定义详解](/doc/template.md)
 
 #### Thanks 
 
-[jaywcjlove](https://github.com/jaywcjlove) 提供的datetime控件js脚本
+[liujianping/scaffold](https://github.com/liujianping/scaffold) go code generator
+
+[LyricTian/gin-admin](https://github.com/LyricTian/gin-admin) awesome RBAC admin system
