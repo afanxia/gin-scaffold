@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# Binary
+gin-scaffold
+
 # Test binary, build with `go test -c`
 *.test
 
