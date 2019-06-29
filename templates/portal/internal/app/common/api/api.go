@@ -1,9 +1,9 @@
 package api
 
 import (
-	"[[.project]]/internal/app/admin/bll"
+	"[[.project]]/internal/app/common/bll"
+	adminctl "[[.project]]/internal/app/admin/ctl"
 	"[[.project]]/internal/app/middleware"
-	"[[.project]]/internal/app/admin/routers/api/ctl"
 	"[[.project]]/pkg/auth"
 	"github.com/casbin/casbin"
 	"github.com/gin-gonic/gin"
@@ -37,11 +37,11 @@ func RegisterRouter(app *gin.Engine, b *bll.Common, a auth.Auther, enforcer *cas
 	// 请求频率限制中间件
 	g.Use(middleware.RateLimiterMiddleware())
 
-	demoCtl := ctl.NewDemo(b)
-	loginCtl := ctl.NewLogin(b)
-	menuCtl := ctl.NewMenu(b)
-	roleCtl := ctl.NewRole(b)
-	userCtl := ctl.NewUser(b)
+	demoCtl := adminctl.NewDemo(b)
+	loginCtl := adminctl.NewLogin(b)
+	menuCtl := adminctl.NewMenu(b)
+	roleCtl := adminctl.NewRole(b)
+	userCtl := adminctl.NewUser(b)
 
 	v1 := g.Group("/v1")
 	{

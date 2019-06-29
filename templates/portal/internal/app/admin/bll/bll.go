@@ -4,13 +4,11 @@ import (
 	"context"
 	"sync"
 
-	"[[.project]]/internal/app/config"
-	icontext "[[.project]]/internal/app/context"
-	"[[.project]]/internal/app/admin/model"
 	"[[.project]]/internal/app/admin/schema"
-	"[[.project]]/pkg/auth"
+	"[[.project]]/internal/app/config"
+	"[[.project]]/internal/app/common/model"
+	icontext "[[.project]]/internal/app/context"
 	"[[.project]]/pkg/util"
-	"github.com/casbin/casbin"
 )
 
 // GetUserID 获取用户ID
@@ -67,22 +65,3 @@ func CheckIsRootUser(ctx context.Context, recordID string) bool {
 	return GetRootUser().RecordID == recordID
 }
 
-// Common 提供统一的业务逻辑处理
-type Common struct {
-	Demo  *Demo
-	Login *Login
-	Menu  *Menu
-	Role  *Role
-	User  *User
-}
-
-// NewCommon 创建统一的业务逻辑处理
-func NewCommon(m *model.Common, a auth.Auther, e *casbin.Enforcer) *Common {
-	return &Common{
-		Demo:  NewDemo(m),
-		Login: NewLogin(m, a),
-		Menu:  NewMenu(m),
-		Role:  NewRole(m, e),
-		User:  NewUser(m, e),
-	}
-}

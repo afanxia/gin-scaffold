@@ -36,7 +36,7 @@ func (Model) TableName(name string) string {
 	return fmt.Sprintf("%s%s", GetTablePrefix(), name)
 }
 
-func toString(v interface{}) string {
+func ToString(v interface{}) string {
 	return util.JSONMarshalToString(v)
 }
 
@@ -51,6 +51,6 @@ func getDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
 	return defDB
 }
 
-func getDBWithModel(ctx context.Context, defDB *gormplus.DB, m interface{}) *gormplus.DB {
+func GetDBWithModel(ctx context.Context, defDB *gormplus.DB, m interface{}) *gormplus.DB {
 	return gormplus.Wrap(getDB(ctx, defDB).Model(m))
 }

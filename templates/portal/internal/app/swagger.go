@@ -12,7 +12,7 @@ package app
 
 import (
 	// API控制器
-	_ "[[.project]]/internal/app/admin/routers/api/ctl"
+	_ "[[.project]]/internal/app/admin/ctl"
 )
 
 // @Version 0.0.1

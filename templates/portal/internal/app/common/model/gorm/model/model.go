@@ -3,7 +3,7 @@ package model
 import (
 	"context"
 
-	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/schema"
 	icontext "[[.project]]/internal/app/context"
 	"[[.project]]/pkg/gormplus"
 	"github.com/jinzhu/gorm"

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
+	"[[.project]]/internal/app/common/api"
 	"[[.project]]/internal/app/config"
 	"[[.project]]/internal/app/middleware"
-	"[[.project]]/internal/app/admin/routers/api"
 	"[[.project]]/pkg/logger"
 	"github.com/gin-gonic/gin"
 )

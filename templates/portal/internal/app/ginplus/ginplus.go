@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strings"
 
+	"[[.project]]/internal/app/common/schema"
 	icontext "[[.project]]/internal/app/context"
-	"[[.project]]/internal/app/admin/schema"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/logger"
 	"[[.project]]/pkg/util"

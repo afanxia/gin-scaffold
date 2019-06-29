@@ -4,12 +4,13 @@ import (
 	"context"
 
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/entity"
 	"[[.project]]/pkg/gormplus"
 )
 
 // GetDemoDB 获取demo存储
 func GetDemoDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, Demo{})
+	return entity.GetDBWithModel(ctx, defDB, Demo{})
 }
 
 // SchemaDemo demo对象
@@ -30,7 +31,7 @@ func (a SchemaDemo) ToDemo() *Demo {
 
 // Demo demo实体
 type Demo struct {
-	Model
+	entity.Model
 	RecordID string `gorm:"column:record_id;size:36;index;"` // 记录内码
 	Code     string `gorm:"column:code;size:50;index;"`      // 编号
 	Name     string `gorm:"column:name;size:100;index;"`     // 名称
@@ -40,7 +41,7 @@ type Demo struct {
 }
 
 func (a Demo) String() string {
-	return toString(a)
+	return entity.ToString(a)
 }
 
 // TableName 表名

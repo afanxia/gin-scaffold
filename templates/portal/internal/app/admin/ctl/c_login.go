@@ -5,16 +5,17 @@ import (
 
 	"github.com/LyricTian/captcha"
 	"[[.project]]/internal/app/admin/bll"
+	cbll "[[.project]]/internal/app/common/bll"
+	"[[.project]]/internal/app/admin/schema"
 	"[[.project]]/internal/app/config"
 	"[[.project]]/internal/app/ginplus"
-	"[[.project]]/internal/app/admin/schema"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/logger"
 	"github.com/gin-gonic/gin"
 )
 
 // NewLogin 创建登录管理控制器
-func NewLogin(b *bll.Common) *Login {
+func NewLogin(b *cbll.Common) *Login {
 	return &Login{
 		LoginBll: b.Login,
 	}

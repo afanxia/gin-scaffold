@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"[[.project]]/internal/app/admin/bll"
+	adminschema "[[.project]]/internal/app/admin/schema"
 	"[[.project]]/internal/app/config"
-	"[[.project]]/internal/app/admin/schema"
 	"[[.project]]/pkg/util"
 )
 
@@ -42,7 +42,7 @@ func initMenuData(ctx context.Context, obj *Object) error {
 		return nil
 	}
 
-	var data schema.MenuTrees
+	var data adminschema.MenuTrees
 	err = util.JSONUnmarshal([]byte(menuData), &data)
 	if err != nil {
 		return err
@@ -51,10 +51,10 @@ func initMenuData(ctx context.Context, obj *Object) error {
 	return createMenus(ctx, obj, "", data)
 }
 
-func createMenus(ctx context.Context, obj *Object, parentID string, list schema.MenuTrees) error {
+func createMenus(ctx context.Context, obj *Object, parentID string, list adminschema.MenuTrees) error {
 	return bll.ExecTrans(ctx, obj.Model.Trans, func(ctx context.Context) error {
 		for _, item := range list {
-			sitem := schema.Menu{
+			sitem := adminschema.Menu{
 				Name:      item.Name,
 				Sequence:  item.Sequence,
 				Icon:      item.Icon,

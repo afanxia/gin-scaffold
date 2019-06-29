@@ -5,12 +5,14 @@ import (
 
 	"[[.project]]/internal/app/admin/model"
 	"[[.project]]/internal/app/admin/schema"
+	cmodel "[[.project]]/internal/app/common/model"
+	cschema "[[.project]]/internal/app/common/schema"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/util"
 )
 
 // NewMenu 创建菜单管理实例
-func NewMenu(m *model.Common) *Menu {
+func NewMenu(m *cmodel.Common) *Menu {
 	return &Menu{
 		TransModel: m.Trans,
 		MenuModel:  m.Menu,
@@ -20,13 +22,13 @@ func NewMenu(m *model.Common) *Menu {
 // Menu 菜单管理
 type Menu struct {
 	MenuModel  model.IMenu
-	TransModel model.ITrans
+	TransModel cmodel.ITrans
 }
 
 // CheckDataInit 检查数据是否初始化
 func (a *Menu) CheckDataInit(ctx context.Context) (bool, error) {
 	result, err := a.MenuModel.Query(ctx, schema.MenuQueryParam{}, schema.MenuQueryOptions{
-		PageParam: &schema.PaginationParam{PageSize: -1},
+		PageParam: &cschema.PaginationParam{PageSize: -1},
 	})
 	if err != nil {
 		return false, err
@@ -35,7 +37,7 @@ func (a *Menu) CheckDataInit(ctx context.Context) (bool, error) {
 }
 
 // QueryPage 查询分页数据
-func (a *Menu) QueryPage(ctx context.Context, params schema.MenuQueryParam, pp *schema.PaginationParam) ([]*schema.Menu, *schema.PaginationResult, error) {
+func (a *Menu) QueryPage(ctx context.Context, params schema.MenuQueryParam, pp *cschema.PaginationParam) ([]*schema.Menu, *cschema.PaginationResult, error) {
 	result, err := a.MenuModel.Query(ctx, params, schema.MenuQueryOptions{
 		PageParam: pp,
 	})
@@ -179,7 +181,7 @@ func (a *Menu) Update(ctx context.Context, recordID string, item schema.Menu) (*
 func (a *Menu) Delete(ctx context.Context, recordID string) error {
 	result, err := a.MenuModel.Query(ctx, schema.MenuQueryParam{
 		ParentID: &recordID,
-	}, schema.MenuQueryOptions{PageParam: &schema.PaginationParam{PageSize: -1}})
+	}, schema.MenuQueryOptions{PageParam: &cschema.PaginationParam{PageSize: -1}})
 	if err != nil {
 		return err
 	} else if result.PageResult.Total > 0 {

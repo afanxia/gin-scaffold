@@ -4,17 +4,18 @@ import (
 	"context"
 
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/entity"
 	"[[.project]]/pkg/gormplus"
 )
 
 // GetUserDB 获取用户存储
 func GetUserDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, User{})
+	return entity.GetDBWithModel(ctx, defDB, User{})
 }
 
 // GetUserRoleDB 获取用户角色关联存储
 func GetUserRoleDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, UserRole{})
+	return entity.GetDBWithModel(ctx, defDB, UserRole{})
 }
 
 // SchemaUser 用户对象
@@ -49,7 +50,7 @@ func (a SchemaUser) ToUserRoles() []*UserRole {
 
 // User 用户实体
 type User struct {
-	Model
+	entity.Model
 	RecordID string  `gorm:"column:record_id;size:36;index;"` // 记录内码
 	UserName string  `gorm:"column:user_name;size:64;index;"` // 用户名
 	RealName string  `gorm:"column:real_name;size:64;index;"` // 真实姓名
@@ -61,7 +62,7 @@ type User struct {
 }
 
 func (a User) String() string {
-	return toString(a)
+	return entity.ToString(a)
 }
 
 // TableName 表名
@@ -106,7 +107,7 @@ func (a Users) ToSchemaUsers() []*schema.User {
 
 // UserRole 用户角色关联实体
 type UserRole struct {
-	Model
+	entity.Model
 	UserID string `gorm:"column:user_id;size:36;index;"` // 用户内码
 	RoleID string `gorm:"column:role_id;size:36;index;"` // 角色内码
 }

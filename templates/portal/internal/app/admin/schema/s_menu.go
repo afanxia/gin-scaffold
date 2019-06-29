@@ -3,6 +3,8 @@ package schema
 import (
 	"strings"
 	"time"
+
+	"[[.project]]/internal/app/common/schema"
 )
 
 // Menu 菜单对象
@@ -47,7 +49,7 @@ type MenuQueryParam struct {
 
 // MenuQueryOptions 查询可选参数项
 type MenuQueryOptions struct {
-	PageParam        *PaginationParam // 分页参数
+	PageParam        *schema.PaginationParam // 分页参数
 	IncludeActions   bool             // 包含动作列表
 	IncludeResources bool             // 包含资源列表
 }
@@ -55,7 +57,7 @@ type MenuQueryOptions struct {
 // MenuQueryResult 查询结果
 type MenuQueryResult struct {
 	Data       Menus
-	PageResult *PaginationResult
+	PageResult *schema.PaginationResult
 }
 
 // Menus 菜单列表

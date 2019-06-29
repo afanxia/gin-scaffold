@@ -5,17 +5,18 @@ import (
 	"strings"
 
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/entity"
 	"[[.project]]/pkg/gormplus"
 )
 
 // GetRoleDB 获取角色存储
 func GetRoleDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, Role{})
+	return entity.GetDBWithModel(ctx, defDB, Role{})
 }
 
 // GetRoleMenuDB 获取角色菜单关联存储
 func GetRoleMenuDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, RoleMenu{})
+	return entity.GetDBWithModel(ctx, defDB, RoleMenu{})
 }
 
 // SchemaRole 角色对象
@@ -44,7 +45,7 @@ func (a SchemaRole) ToRoleMenus() []*RoleMenu {
 
 // Role 角色实体
 type Role struct {
-	Model
+	entity.Model
 	RecordID string `gorm:"column:record_id;size:36;index;"` // 记录内码
 	Name     string `gorm:"column:name;size:100;index;"`     // 角色名称
 	Sequence int    `gorm:"column:sequence;index;"`          // 排序值
@@ -53,7 +54,7 @@ type Role struct {
 }
 
 func (a Role) String() string {
-	return toString(a)
+	return entity.ToString(a)
 }
 
 // TableName 表名
@@ -114,7 +115,7 @@ func (a SchemaRoleMenu) ToRoleMenu(roleID string) *RoleMenu {
 
 // RoleMenu 角色菜单关联实体
 type RoleMenu struct {
-	Model
+	entity.Model
 	RoleID   string  `gorm:"column:role_id;size:36;index;"` // 角色内码
 	MenuID   string  `gorm:"column:menu_id;size:36;index;"` // 菜单内码
 	Action   *string `gorm:"column:action;size:2048;"`      // 动作权限(多个以英文逗号分隔)

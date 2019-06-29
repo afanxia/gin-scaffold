@@ -2,6 +2,8 @@ package schema
 
 import (
 	"time"
+
+	"[[.project]]/internal/app/common/schema"
 )
 
 // User 用户对象
@@ -35,14 +37,14 @@ type UserQueryParam struct {
 
 // UserQueryOptions 查询可选参数项
 type UserQueryOptions struct {
-	PageParam    *PaginationParam // 分页参数
+	PageParam    *schema.PaginationParam // 分页参数
 	IncludeRoles bool             // 包含角色权限
 }
 
 // UserQueryResult 查询结果
 type UserQueryResult struct {
 	Data       Users
-	PageResult *PaginationResult
+	PageResult *schema.PaginationResult
 }
 
 // Users 用户对象列表

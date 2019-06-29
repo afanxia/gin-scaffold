@@ -1,6 +1,10 @@
 package schema
 
-import "time"
+import (
+	"time"
+
+	"[[.project]]/internal/app/common/schema"
+)
 
 // Role 角色对象
 type Role struct {
@@ -31,14 +35,14 @@ type RoleQueryParam struct {
 
 // RoleQueryOptions 查询可选参数项
 type RoleQueryOptions struct {
-	PageParam    *PaginationParam // 分页参数
+	PageParam    *schema.PaginationParam // 分页参数
 	IncludeMenus bool             // 包含菜单权限
 }
 
 // RoleQueryResult 查询结果
 type RoleQueryResult struct {
 	Data       Roles
-	PageResult *PaginationResult
+	PageResult *schema.PaginationResult
 }
 
 // Roles 角色对象列表

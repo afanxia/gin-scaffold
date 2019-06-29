@@ -5,13 +5,15 @@ import (
 
 	"[[.project]]/internal/app/admin/model"
 	"[[.project]]/internal/app/admin/schema"
+	cmodel "[[.project]]/internal/app/common/model"
+	cschema "[[.project]]/internal/app/common/schema"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/util"
 	"github.com/casbin/casbin"
 )
 
 // NewRole 创建菜单管理实例
-func NewRole(m *model.Common, e *casbin.Enforcer) *Role {
+func NewRole(m *cmodel.Common, e *casbin.Enforcer) *Role {
 	return &Role{
 		RoleModel: m.Role,
 		MenuModel: m.Menu,
@@ -27,7 +29,7 @@ type Role struct {
 }
 
 // QueryPage 查询分页数据
-func (a *Role) QueryPage(ctx context.Context, params schema.RoleQueryParam, pp *schema.PaginationParam) ([]*schema.Role, *schema.PaginationResult, error) {
+func (a *Role) QueryPage(ctx context.Context, params schema.RoleQueryParam, pp *cschema.PaginationParam) ([]*schema.Role, *cschema.PaginationResult, error) {
 	result, err := a.RoleModel.Query(ctx, params, schema.RoleQueryOptions{
 		PageParam: pp,
 	})
@@ -70,7 +72,7 @@ func (a *Role) checkName(ctx context.Context, name string) error {
 	result, err := a.RoleModel.Query(ctx, schema.RoleQueryParam{
 		Name: name,
 	}, schema.RoleQueryOptions{
-		PageParam: &schema.PaginationParam{PageSize: -1},
+		PageParam: &cschema.PaginationParam{PageSize: -1},
 	})
 	if err != nil {
 		return err

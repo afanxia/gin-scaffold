@@ -1,6 +1,10 @@
 package schema
 
-import "time"
+import (
+	"time"
+
+	"[[.project]]/internal/app/common/schema"
+)
 
 // Demo demo对象
 type Demo struct {
@@ -23,11 +27,11 @@ type DemoQueryParam struct {
 
 // DemoQueryOptions demo对象查询可选参数项
 type DemoQueryOptions struct {
-	PageParam *PaginationParam // 分页参数
+	PageParam *schema.PaginationParam // 分页参数
 }
 
 // DemoQueryResult demo对象查询结果
 type DemoQueryResult struct {
 	Data       []*Demo
-	PageResult *PaginationResult
+	PageResult *schema.PaginationResult
 }

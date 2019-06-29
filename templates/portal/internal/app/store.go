@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
+	"[[.project]]/internal/app/common/model"
+	"[[.project]]/internal/app/common/model/gorm"
 	"[[.project]]/internal/app/config"
-	"[[.project]]/internal/app/admin/model"
-	"[[.project]]/internal/app/admin/model/gorm"
 	"[[.project]]/pkg/gormplus"
 )
 

@@ -1,30 +1,33 @@
 package ctl
 
 import (
+	"strings"
+
 	"[[.project]]/internal/app/admin/bll"
-	"[[.project]]/internal/app/ginplus"
+	cbll "[[.project]]/internal/app/common/bll"
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/ginplus"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/util"
 	"github.com/gin-gonic/gin"
 )
 
-// NewDemo 创建demo控制器
-func NewDemo(b *bll.Common) *Demo {
-	return &Demo{
-		DemoBll: b.Demo,
+// NewUser 创建用户管理控制器
+func NewUser(b *cbll.Common) *User {
+	return &User{
+		UserBll: b.User,
 	}
 }
 
-// Demo demo
-// @Name Demo
-// @Description demo
-type Demo struct {
-	DemoBll *bll.Demo
+// User 用户管理
+// @Name User
+// @Description 用户管理接口
+type User struct {
+	UserBll *bll.User
 }
 
 // Query 查询数据
-func (a *Demo) Query(c *gin.Context) {
+func (a *User) Query(c *gin.Context) {
 	switch c.Query("q") {
 	case "page":
 		a.QueryPage(c)
@@ -38,40 +41,47 @@ func (a *Demo) Query(c *gin.Context) {
 // @Param Authorization header string false "Bearer 用户令牌"
 // @Param current query int true "分页索引" 1
 // @Param pageSize query int true "分页大小" 10
-// @Param code query string false "编号"
-// @Param name query string false "名称"
+// @Param user_name query string false "用户名(模糊查询)"
+// @Param real_name query string false "真实姓名(模糊查询)"
+// @Param role_ids query string false "角色ID(多个以英文逗号分隔)"
 // @Param status query int false "状态(1:启用 2:停用)"
-// @Success 200 []schema.Demo "查询结果：{list:列表数据,pagination:{current:页索引,pageSize:页大小,total:总数量}}"
+// @Success 200 []schema.UserPageShow "分页查询结果：{list:列表数据,pagination:{current:页索引,pageSize:页大小,total:总数量}}"
 // @Failure 400 schema.HTTPError "{error:{code:0,message:未知的查询类型}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router GET /api/v1/demos?q=page
-func (a *Demo) QueryPage(c *gin.Context) {
-	var params schema.DemoQueryParam
-	params.LikeCode = c.Query("code")
-	params.LikeName = c.Query("name")
-	params.Status = util.S(c.Query("status")).Int()
+// @Router GET /api/v1/users?q=page
+func (a *User) QueryPage(c *gin.Context) {
+	var params schema.UserQueryParam
+	params.LikeUserName = c.Query("user_name")
+	params.LikeRealName = c.Query("real_name")
+	if v := util.S(c.Query("status")).Int(); v > 0 {
+		params.Status = v
+	}
 
-	items, pr, err := a.DemoBll.QueryPage(ginplus.NewContext(c), params, ginplus.GetPaginationParam(c))
+	if v := c.Query("role_ids"); v != "" {
+		params.RoleIDs = strings.Split(v, ",")
+	}
+
+	items, pr, err := a.UserBll.QueryPage(ginplus.NewContext(c), params, ginplus.GetPaginationParam(c))
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
 	}
-
 	ginplus.ResPage(c, items, pr)
 }
 
 // Get 查询指定数据
+// Get 查询指定数据
 // @Summary 查询指定数据
 // @Param Authorization header string false "Bearer 用户令牌"
 // @Param id path string true "记录ID"
-// @Success 200 schema.Demo
+// @Success 200 schema.User
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 404 schema.HTTPError "{error:{code:0,message:资源不存在}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router GET /api/v1/demos/{id}
-func (a *Demo) Get(c *gin.Context) {
-	item, err := a.DemoBll.Get(ginplus.NewContext(c), c.Param("id"))
+// @Router GET /api/v1/users/{id}
+func (a *User) Get(c *gin.Context) {
+	item, err := a.UserBll.Get(ginplus.NewContext(c), c.Param("id"))
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
@@ -82,20 +92,20 @@ func (a *Demo) Get(c *gin.Context) {
 // Create 创建数据
 // @Summary 创建数据
 // @Param Authorization header string false "Bearer 用户令牌"
-// @Param body body schema.Demo true
-// @Success 200 schema.Demo
+// @Param body body schema.User true
+// @Success 200 schema.User
 // @Failure 400 schema.HTTPError "{error:{code:0,message:无效的请求参数}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router POST /api/v1/demos
-func (a *Demo) Create(c *gin.Context) {
-	var item schema.Demo
+// @Router POST /api/v1/users
+func (a *User) Create(c *gin.Context) {
+	var item schema.User
 	if err := ginplus.ParseJSON(c, &item); err != nil {
 		ginplus.ResError(c, err)
 		return
 	}
 
-	nitem, err := a.DemoBll.Create(ginplus.NewContext(c), item)
+	nitem, err := a.UserBll.Create(ginplus.NewContext(c), item)
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
@@ -107,20 +117,20 @@ func (a *Demo) Create(c *gin.Context) {
 // @Summary 更新数据
 // @Param Authorization header string false "Bearer 用户令牌"
 // @Param id path string true "记录ID"
-// @Param body body schema.Demo true
-// @Success 200 schema.Demo
+// @Param body body schema.User true
+// @Success 200 schema.User
 // @Failure 400 schema.HTTPError "{error:{code:0,message:无效的请求参数}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PUT /api/v1/demos/{id}
-func (a *Demo) Update(c *gin.Context) {
-	var item schema.Demo
+// @Router PUT /api/v1/users/{id}
+func (a *User) Update(c *gin.Context) {
+	var item schema.User
 	if err := ginplus.ParseJSON(c, &item); err != nil {
 		ginplus.ResError(c, err)
 		return
 	}
 
-	nitem, err := a.DemoBll.Update(ginplus.NewContext(c), c.Param("id"), item)
+	nitem, err := a.UserBll.Update(ginplus.NewContext(c), c.Param("id"), item)
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
@@ -135,9 +145,9 @@ func (a *Demo) Update(c *gin.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router DELETE /api/v1/demos/{id}
-func (a *Demo) Delete(c *gin.Context) {
-	err := a.DemoBll.Delete(ginplus.NewContext(c), c.Param("id"))
+// @Router DELETE /api/v1/users/{id}
+func (a *User) Delete(c *gin.Context) {
+	err := a.UserBll.Delete(ginplus.NewContext(c), c.Param("id"))
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
@@ -152,9 +162,9 @@ func (a *Demo) Delete(c *gin.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PATCH /api/v1/demos/{id}/enable
-func (a *Demo) Enable(c *gin.Context) {
-	err := a.DemoBll.UpdateStatus(ginplus.NewContext(c), c.Param("id"), 1)
+// @Router PATCH /api/v1/users/{id}/enable
+func (a *User) Enable(c *gin.Context) {
+	err := a.UserBll.UpdateStatus(ginplus.NewContext(c), c.Param("id"), 1)
 	if err != nil {
 		ginplus.ResError(c, err)
 		return
@@ -169,9 +179,9 @@ func (a *Demo) Enable(c *gin.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PATCH /api/v1/demos/{id}/disable
-func (a *Demo) Disable(c *gin.Context) {
-	err := a.DemoBll.UpdateStatus(ginplus.NewContext(c), c.Param("id"), 2)
+// @Router PATCH /api/v1/users/{id}/disable
+func (a *User) Disable(c *gin.Context) {
+	err := a.UserBll.UpdateStatus(ginplus.NewContext(c), c.Param("id"), 2)
 	if err != nil {
 		ginplus.ResError(c, err)
 		return

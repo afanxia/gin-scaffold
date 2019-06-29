@@ -6,6 +6,7 @@ import (
 
 	"[[.project]]/internal/app/admin/model/gorm/entity"
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/model"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/gormplus"
 	"[[.project]]/pkg/logger"
@@ -55,7 +56,7 @@ func (a *Demo) Query(ctx context.Context, params schema.DemoQueryParam, opts ...
 
 	opt := a.getQueryOption(opts...)
 	var list entity.Demos
-	pr, err := WrapPageQuery(db, opt.PageParam, &list)
+	pr, err := model.WrapPageQuery(db, opt.PageParam, &list)
 	if err != nil {
 		span.Errorf(err.Error())
 		return nil, errors.New("查询数据发生错误")

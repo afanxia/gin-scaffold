@@ -4,22 +4,23 @@ import (
 	"context"
 
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/entity"
 	"[[.project]]/pkg/gormplus"
 )
 
 // GetMenuDB 获取菜单存储
 func GetMenuDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, Menu{})
+	return entity.GetDBWithModel(ctx, defDB, Menu{})
 }
 
 // GetMenuActionDB 获取菜单动作存储
 func GetMenuActionDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, MenuAction{})
+	return entity.GetDBWithModel(ctx, defDB, MenuAction{})
 }
 
 // GetMenuResourceDB 获取菜单资源存储
 func GetMenuResourceDB(ctx context.Context, defDB *gormplus.DB) *gormplus.DB {
-	return getDBWithModel(ctx, defDB, MenuResource{})
+	return entity.GetDBWithModel(ctx, defDB, MenuResource{})
 }
 
 // SchemaMenu 菜单对象
@@ -61,7 +62,7 @@ func (a SchemaMenu) ToMenuResources() []*MenuResource {
 
 // Menu 菜单实体
 type Menu struct {
-	Model
+	entity.Model
 	RecordID   string `gorm:"column:record_id;size:36;index;"`    // 记录内码
 	Name       string `gorm:"column:name;size:50;index;"`         // 菜单名称
 	Sequence   int    `gorm:"column:sequence;index;"`             // 排序值
@@ -74,7 +75,7 @@ type Menu struct {
 }
 
 func (a Menu) String() string {
-	return toString(a)
+	return entity.ToString(a)
 }
 
 // TableName 表名
@@ -128,7 +129,7 @@ func (a SchemaMenuAction) ToMenuAction(menuID string) *MenuAction {
 
 // MenuAction 菜单动作关联实体
 type MenuAction struct {
-	Model
+	entity.Model
 	MenuID string `gorm:"column:menu_id;size:36;index;"` // 菜单ID
 	Code   string `gorm:"column:code;size:50;index;"`    // 动作编号
 	Name   string `gorm:"column:name;size:50;"`          // 动作名称
@@ -195,7 +196,7 @@ func (a SchemaMenuResource) ToMenuResource(menuID string) *MenuResource {
 
 // MenuResource 菜单资源关联实体
 type MenuResource struct {
-	Model
+	entity.Model
 	MenuID string `gorm:"column:menu_id;size:36;index;"` // 菜单ID
 	Code   string `gorm:"column:code;size:50;index;"`    // 资源编号
 	Name   string `gorm:"column:name;size:50;"`          // 资源名称

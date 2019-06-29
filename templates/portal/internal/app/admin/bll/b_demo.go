@@ -5,12 +5,14 @@ import (
 
 	"[[.project]]/internal/app/admin/model"
 	"[[.project]]/internal/app/admin/schema"
+	cmodel "[[.project]]/internal/app/common/model"
+	cschema "[[.project]]/internal/app/common/schema"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/util"
 )
 
 // NewDemo 创建demo
-func NewDemo(m *model.Common) *Demo {
+func NewDemo(m *cmodel.Common) *Demo {
 	return &Demo{
 		DemoModel: m.Demo,
 	}
@@ -22,7 +24,7 @@ type Demo struct {
 }
 
 // QueryPage 查询分页数据
-func (a *Demo) QueryPage(ctx context.Context, params schema.DemoQueryParam, pp *schema.PaginationParam) ([]*schema.Demo, *schema.PaginationResult, error) {
+func (a *Demo) QueryPage(ctx context.Context, params schema.DemoQueryParam, pp *cschema.PaginationParam) ([]*schema.Demo, *cschema.PaginationResult, error) {
 	result, err := a.DemoModel.Query(ctx, params, schema.DemoQueryOptions{PageParam: pp})
 	if err != nil {
 		return nil, nil, err
@@ -46,7 +48,7 @@ func (a *Demo) checkCode(ctx context.Context, code string) error {
 	result, err := a.DemoModel.Query(ctx, schema.DemoQueryParam{
 		Code: code,
 	}, schema.DemoQueryOptions{
-		PageParam: &schema.PaginationParam{PageSize: -1},
+		PageParam: &cschema.PaginationParam{PageSize: -1},
 	})
 	if err != nil {
 		return err

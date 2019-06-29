@@ -12,7 +12,7 @@
 *.out
 
 *.DS_Store
-/cmd/[[.project]]/[[.project]]
+/cmd/[[.projectName]]/[[.projectName]]
 /release
 /data
 /internal/app/test/data

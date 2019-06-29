@@ -3,9 +3,9 @@ package app
 import (
 	"context"
 
-	"[[.project]]/internal/app/admin/bll"
+	"[[.project]]/internal/app/common/bll"
+	"[[.project]]/internal/app/common/model"
 	"[[.project]]/internal/app/config"
-	"[[.project]]/internal/app/admin/model"
 	"[[.project]]/pkg/auth"
 	"[[.project]]/pkg/logger"
 	"github.com/casbin/casbin"

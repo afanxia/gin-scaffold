@@ -7,6 +7,7 @@ import (
 
 	"github.com/LyricTian/captcha"
 	"[[.project]]/internal/app/admin/model"
+	cmodel "[[.project]]/internal/app/common/model"
 	"[[.project]]/internal/app/admin/schema"
 	"[[.project]]/pkg/auth"
 	"[[.project]]/pkg/errors"
@@ -24,7 +25,7 @@ var (
 )
 
 // NewLogin 创建登录管理实例
-func NewLogin(m *model.Common, a auth.Auther) *Login {
+func NewLogin(m *cmodel.Common, a auth.Auther) *Login {
 	return &Login{
 		UserModel: m.User,
 		RoleModel: m.Role,

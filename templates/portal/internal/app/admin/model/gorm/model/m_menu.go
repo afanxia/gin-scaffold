@@ -6,6 +6,7 @@ import (
 
 	"[[.project]]/internal/app/admin/model/gorm/entity"
 	"[[.project]]/internal/app/admin/schema"
+	"[[.project]]/internal/app/common/model/gorm/model"
 	"[[.project]]/pkg/errors"
 	"[[.project]]/pkg/gormplus"
 	"[[.project]]/pkg/logger"
@@ -58,7 +59,7 @@ func (a *Menu) Query(ctx context.Context, params schema.MenuQueryParam, opts ...
 
 	opt := a.getQueryOption(opts...)
 	var list entity.Menus
-	pr, err := WrapPageQuery(db, opt.PageParam, &list)
+	pr, err := model.WrapPageQuery(db, opt.PageParam, &list)
 	if err != nil {
 		span.Errorf(err.Error())
 		return nil, errors.New("查询数据发生错误")
@@ -146,7 +147,7 @@ func (a *Menu) Create(ctx context.Context, item schema.Menu) error {
 	span := logger.StartSpan(ctx, "创建数据", a.getFuncName("Create"))
 	defer span.Finish()
 
-	return ExecTrans(ctx, a.db, func(ctx context.Context) error {
+	return model.ExecTrans(ctx, a.db, func(ctx context.Context) error {
 		sitem := entity.SchemaMenu(item)
 		result := entity.GetMenuDB(ctx, a.db).Create(sitem.ToMenu())
 		if err := result.Error; err != nil {
@@ -287,7 +288,7 @@ func (a *Menu) Update(ctx context.Context, recordID string, item schema.Menu) er
 	span := logger.StartSpan(ctx, "更新数据", a.getFuncName("Update"))
 	defer span.Finish()
 
-	return ExecTrans(ctx, a.db, func(ctx context.Context) error {
+	return model.ExecTrans(ctx, a.db, func(ctx context.Context) error {
 		sitem := entity.SchemaMenu(item)
 		result := entity.GetMenuDB(ctx, a.db).Where("record_id=?", recordID).Omit("record_id", "creator").Updates(sitem.ToMenu())
 		if err := result.Error; err != nil {
@@ -327,7 +328,7 @@ func (a *Menu) Delete(ctx context.Context, recordID string) error {
 	span := logger.StartSpan(ctx, "删除数据", a.getFuncName("Delete"))
 	defer span.Finish()
 
-	return ExecTrans(ctx, a.db, func(ctx context.Context) error {
+	return model.ExecTrans(ctx, a.db, func(ctx context.Context) error {
 		result := entity.GetMenuDB(ctx, a.db).Where("record_id=?", recordID).Delete(entity.Menu{})
 		if err := result.Error; err != nil {
 			span.Errorf(err.Error())
