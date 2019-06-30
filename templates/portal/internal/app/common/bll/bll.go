@@ -1,7 +1,9 @@
+[[set . "t_class" (.table.Name | singular | camel)]]
 package bll
 
 import (
 	adminbll "[[.project]]/internal/app/admin/bll"
+	[[.projectName]]bll "[[.project]]/internal/app/[[.projectName]]/bll"
 	"[[.project]]/internal/app/common/model"
 	"[[.project]]/pkg/auth"
 	"github.com/casbin/casbin"
@@ -14,6 +16,7 @@ type Common struct {
 	Menu  *adminbll.Menu
 	Role  *adminbll.Role
 	User  *adminbll.User
+	[[.t_class]] *[[.projectName]]bll.[[.t_class]]
 }
 
 // NewCommon 创建统一的业务逻辑处理
@@ -24,5 +27,6 @@ func NewCommon(m *model.Common, a auth.Auther, e *casbin.Enforcer) *Common {
 		Menu:  adminbll.NewMenu(m),
 		Role:  adminbll.NewRole(m, e),
 		User:  adminbll.NewUser(m, e),
+		[[.t_class]]: [[.projectName]]bll.New[[.t_class]](m),
 	}
 }

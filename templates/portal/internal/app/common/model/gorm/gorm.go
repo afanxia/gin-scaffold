@@ -1,10 +1,13 @@
+[[set . "t_class" (.table.Name | singular | camel)]]
 package gorm
 
 import (
 	adminentity "[[.project]]/internal/app/admin/model/gorm/entity"
+	[[.projectName]]entity "[[.project]]/internal/app/[[.projectName]]/model/gorm/entity"
 	"[[.project]]/internal/app/common/model"
 	"[[.project]]/internal/app/common/model/gorm/entity"
 	adminmodel "[[.project]]/internal/app/admin/model/gorm/model"
+	[[.projectName]]model "[[.project]]/internal/app/[[.projectName]]/model/gorm/model"
 	cmodel "[[.project]]/internal/app/common/model/gorm/model"
 	"[[.project]]/pkg/gormplus"
 )
@@ -25,6 +28,7 @@ func AutoMigrate(db *gormplus.DB) error {
 		new(adminentity.MenuAction),
 		new(adminentity.MenuResource),
 		new(adminentity.Demo),
+		new([[.projectName]]entity.[[.t_class]]),
 	).Error
 }
 
@@ -36,5 +40,6 @@ func NewModel(db *gormplus.DB) *model.Common {
 		Menu:  adminmodel.NewMenu(db),
 		Role:  adminmodel.NewRole(db),
 		User:  adminmodel.NewUser(db),
+		[[.t_class]]:  [[.projectName]]model.New[[.t_class]](db),
 	}
 }
