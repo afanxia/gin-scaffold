@@ -20,12 +20,9 @@ type Schema[[.t_class]] schema.[[.t_class]]
 // To[[.t_class]] 转换为[[.table.Name]]实体
 func (a Schema[[.t_class]]) To[[.t_class]]() *[[.t_class]] {
 	item := &[[.t_class]]{
-		RecordID: a.RecordID,
-		Code:     a.Code,
-		Name:     a.Name,
-		Memo:     a.Memo,
-		Status:   a.Status,
-		Creator:  a.Creator,
+		[[range .table.Columns]]
+		[[- .Field | camel | lint]]:  a.[[.Field | camel | lint]],
+		[[end]]
 	}
 	return item
 }
@@ -33,12 +30,9 @@ func (a Schema[[.t_class]]) To[[.t_class]]() *[[.t_class]] {
 // [[.t_class]] [[.table.Name]]实体
 type [[.t_class]] struct {
 	entity.Model
-	RecordID string `gorm:"column:record_id;size:36;index;"` // 记录内码
-	Code     string `gorm:"column:code;size:50;index;"`      // 编号
-	Name     string `gorm:"column:name;size:100;index;"`     // 名称
-	Memo     string `gorm:"column:memo;size:200;"`           // 备注
-	Status   int    `gorm:"column:status;index;"`            // 状态(1:启用 2:停用)
-	Creator  string `gorm:"column:creator;size:36;"`         // 创建者
+	[[range .table.Columns]]
+	[[- .Field | camel | lint]]	[[convert "mysql" .Type (.Tag "gotype")]]	`db:"[[.Field]]"`
+	[[end]]
 }
 
 func (a [[.t_class]]) String() string {
@@ -53,13 +47,9 @@ func (a [[.t_class]]) TableName() string {
 // ToSchema[[.t_class]] 转换为[[.table.Name]]对象
 func (a [[.t_class]]) ToSchema[[.t_class]]() *schema.[[.t_class]] {
 	item := &schema.[[.t_class]]{
-		RecordID:  a.RecordID,
-		Code:      a.Code,
-		Name:      a.Name,
-		Memo:      a.Memo,
-		Status:    a.Status,
-		Creator:   a.Creator,
-		CreatedAt: a.CreatedAt,
+		[[range .table.Columns]]
+		[[- .Field | camel | lint]]:  a.[[.Field | camel | lint]],
+		[[end]]
 	}
 	return item
 }
