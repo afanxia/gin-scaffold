@@ -16,7 +16,9 @@ type Common struct {
 	Menu  *adminbll.Menu
 	Role  *adminbll.Role
 	User  *adminbll.User
-	[[.t_class]] *[[.projectName]]bll.[[.t_class]]
+	[[range $t := .tables]]
+	[[- $t.Name | singular | camel]] *[[$.projectName]]bll.[[$t.Name | singular | camel]]
+	[[end]]
 }
 
 // NewCommon 创建统一的业务逻辑处理
@@ -27,6 +29,8 @@ func NewCommon(m *model.Common, a auth.Auther, e *casbin.Enforcer) *Common {
 		Menu:  adminbll.NewMenu(m),
 		Role:  adminbll.NewRole(m, e),
 		User:  adminbll.NewUser(m, e),
-		[[.t_class]]: [[.projectName]]bll.New[[.t_class]](m),
+		[[range $t := .tables]]
+		[[- $t.Name | singular | camel]]: [[$.projectName]]bll.New[[$t.Name | singular | camel]](m),
+		[[end]]
 	}
 }

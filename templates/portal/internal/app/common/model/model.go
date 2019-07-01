@@ -13,5 +13,7 @@ type Common struct {
 	Menu  adminmodel.IMenu
 	Role  adminmodel.IRole
 	User  adminmodel.IUser
-	[[.t_class]] [[.projectName]]model.I[[.t_class]]
+	[[range $t := .tables]]
+	[[- $t.Name | singular | camel]] [[$.projectName]]model.I[[$t.Name | singular | camel]]
+	[[end]]
 }
